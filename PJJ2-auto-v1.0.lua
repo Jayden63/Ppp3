@@ -12,7 +12,7 @@ local function fireClickDetector(path)
         end
     end
     if detector and detector:IsA("ClickDetector") then
-        fireclickdetector(detector,10, )
+        fireclickdetector(detector)
     else
         warn("Object at path '" .. path .. "' is not a ClickDetector.")
     end
