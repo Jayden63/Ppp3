@@ -2,6 +2,7 @@ local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 
+-- Generalized function to fire ClickDetector
 local function fireClickDetector(path)
     local detector = workspace
     for _, part in pairs(string.split(path, ".")) do
@@ -18,29 +19,32 @@ local function fireClickDetector(path)
     end
 end
 
-local function teleportToArrowAndClick(arrow)
+-- Generalized teleport and click function
+local function teleportToItem(item, clickDetectorPath)
     local player = Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
 
-    -- Ensure the arrow has a Handle with a valid CFrame
-    local handle = arrow:FindFirstChild("Handle")
+    -- Ensure the item has a Handle with a valid CFrame
+    local handle = item:FindFirstChild("Handle")
     if handle and handle.CFrame then
         local position = handle.CFrame.Position
         character:MoveTo(position)
 
-        -- Construct the ClickDetector path dynamically
-        local clickDetectorPath = "Items." .. arrow.Name .. ".ClickBox.ClickDetector"
+        -- Fire the corresponding ClickDetector
         fireClickDetector(clickDetectorPath)
     else
-        warn("Invalid Stand Arrow object or missing Handle/CFrame: ", arrow)
+        warn("Invalid item or missing Handle/CFrame: ", item)
     end
 end
 
+-- Search for specific items and teleport/click based on their type
 local function findAndTeleport()
-    local arrows = Workspace.Items:GetChildren()
-    for _, arrow in pairs(arrows) do
-        if arrow.Name == "Stand Arrow" then
-            teleportToArrowAndClick(arrow)
+    local items = Workspace.Items:GetChildren()
+    for _, item in pairs(items) do
+        if item.Name == "Stand Arrow" then
+            teleportToItem(item, "Items.Stand Arrow.ClickBox.ClickDetector")
+        elseif item.Name == "Rokakaka Fruit" then
+            teleportToItem(item, "Items.Rokakaka Fruit.ClickBox.ClickDetector")
         end
     end
 end
