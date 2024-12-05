@@ -58,7 +58,11 @@ local itemPaths = {
     ["Steel Ball"] = "Items.Steel Ball.Handle.ClickDetector",
     ["Vampire Mask"] = "Items.Vampire Mask.Handle.ClickDetector",
     ["Requiem Arrow"] = "Items.Requiem Arrow.ClickBox.ClickDetector",
-    ["Stone Rokakaka"] = "Items.Stone Rokakaka.ClickBox.ClickDetector"
+    ["Stone Rokakaka"] = "Items.Stone Rokakaka.ClickBox.ClickDetector",
+    ["Sinner's Soul"] = "Items.Sinner's Soul.ClickBox.ClickDetector",
+    ["Aja Mask"] = "Items.Aja Mask.Handle.ClickDetector",
+    ["Corpse Part"] = "Items.Corpse Part.handle.ClickDetector",
+    ["Dio Diary"] = "Items.Dio Diary.handle.ClickDetector"
 }
 
 -- Search for specific items and teleport/click based on their type
