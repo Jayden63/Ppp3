@@ -5,11 +5,10 @@ local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:getService("ReplicatedStorage")
 local StarterGui = game:GetService("StarterGui")
 
--- Adjustable delay (in seconds)
+
 local TELEPORT_DELAY = 3
 local autoFarmEnabled = true
 
--- Generalized function to fire ClickDetector with retries
 local function fireClickDetector(path, retries)
     retries = retries or 3 -- Default to 3 retries
     local detector = workspace
@@ -36,20 +35,19 @@ local function teleportToItem(item, clickDetectorPath)
     local player = Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
 
-    -- Ensure the item has a Handle with a valid CFrame
     local handle = item:FindFirstChild("Handle")
     if handle and handle.CFrame then
         local position = handle.CFrame.Position
         character:MoveTo(position)
 
-        -- Fire the corresponding ClickDetector
+        -- Fire ClickDetector
         fireClickDetector(clickDetectorPath)
     else
         warn("Invalid item or missing Handle/CFrame: ", item)
     end
 end
 
--- Define a map of item names to ClickDetector paths
+
 local itemPaths = {
     ["Stand Arrow"] = "Items.Stand Arrow.ClickBox.ClickDetector",
     ["Rokakaka Fruit"] = "Items.Rokakaka Fruit.ClickBox.ClickDetector",
@@ -65,7 +63,7 @@ local itemPaths = {
     ["Dio Diary"] = "Items.Dio Diary.handle.ClickDetector"
 }
 
--- Search for specific items and teleport/click based on their type
+
 local function findAndTeleport()
     if not autoFarmEnabled then return end -- Exit if autofarm is disabled
     local items = Workspace.Items:GetChildren()
@@ -86,7 +84,7 @@ end)
 -- Initial run to avoid delay
 findAndTeleport()
 
--- Create UI buttons to toggle autofarm and sell items
+
 local function createButtons()
     local screenGui = Instance.new("ScreenGui")
     screenGui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -123,7 +121,7 @@ local function createButtons()
     sellButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
 
     sellButton.MouseButton1Click:Connect(function()
-        -- Stop autofarm temporarily
+        -- Stop autofarm temporarily (lowk doesnt work)
         local wasAutoFarmEnabled = autoFarmEnabled
         autoFarmEnabled = false
         toggleButton.Text = "AutoFarm: OFF"
