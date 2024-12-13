@@ -49,14 +49,7 @@ end
 
 
 local itemPaths = {
-    ["Stand Arrow"] = "Items.Stand Arrow.ClickBox.ClickDetector",
-    ["Rokakaka Fruit"] = "Items.Rokakaka Fruit.ClickBox.ClickDetector",
-    ["Hamon Breather"] = "Items.Hamon Breather.Handle.ClickDetector",
-    ["Dio Bone"] = "Items.Dio Bone.ClickBox.ClickDetector",
-    ["Steel Ball"] = "Items.Steel Ball.Handle.ClickDetector",
-    ["Vampire Mask"] = "Items.Vampire Mask.Handle.ClickDetector",
     ["Requiem Arrow"] = "Items.Requiem Arrow.ClickBox.ClickDetector",
-    ["Stone Rokakaka"] = "Items.Stone Rokakaka.ClickBox.ClickDetector",
     ["Sinner's Soul"] = "Items.Sinner's Soul.ClickBox.ClickDetector",
     ["Aja Mask"] = "Items.Aja Mask.Handle.ClickDetector",
     ["Corpse Part"] = "Items.Corpse Part.handle.ClickDetector",
